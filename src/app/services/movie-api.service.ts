@@ -5,7 +5,12 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class MovieApiService {
-  readonly MOVIE_URL = 'https://api.themoviedb.org/3/'
+  readonly MOVIE_URL = 'https://api.themoviedb.org/3/';
+  readonly API_KEY = 'db90fe7f5c36038cce9bc73ded5d5167';
 
   constructor(private httpClient: HttpClient) { }
+
+  get(query: string){
+    return this.httpClient.get<any>(`${this.MOVIE_URL}&api_key=${this.API_KEY}&query=${query}`).toPromise();
+  }
 }
