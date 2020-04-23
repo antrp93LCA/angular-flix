@@ -9,7 +9,7 @@ export class ApiServiceService {
   constructor(private httpClient: HttpClient) { }
 
   get(){
-    return this.httpClient.get(this.API_URL).toPromise();
+    return this.httpClient.get<any>(this.API_URL).toPromise();
   }
 
   post(data: any){
